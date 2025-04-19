@@ -7,6 +7,9 @@ import Home from "./pages/Home"; // Add this if you create a home page
 import Navbar from "./components/Navbar";
 import PrivateRoute from "./routes/PrivateRoute";
 import AddBook from "./pages/AddBook";
+import AllBooks from "./pages/AllBooks";
+import BookDetails from "./pages/BookDetails";
+import MyBorrowedBooks from "./pages/MyBorrowedBooks";
 
 const App = () => {
   return (
@@ -16,14 +19,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-        path="/add-book"
-        element={
-          <PrivateRoute>
-            <AddBook />
-          </PrivateRoute>
-        }
-      />
+        <Route path="/all-books" element={<AllBooks />} />
+        <Route path="/add-book" element={<PrivateRoute><AddBook /></PrivateRoute>}/>
+        <Route path="/book/:id" element={<PrivateRoute><BookDetails /></PrivateRoute>} />
+        <Route path="/my-borrowed" element={<PrivateRoute><MyBorrowedBooks /></PrivateRoute>} />
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
     </div>

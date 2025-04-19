@@ -23,7 +23,7 @@ const Navbar = ({ user, onLogout }) => {
           <Link to="/all-books" className="hover:text-blue-400">
             All Books
           </Link>
-          <Link to="/borrowed-books" className="hover:text-blue-400">
+          <Link to="/my-borrowed" className="hover:text-blue-400">
             Borrowed Books
           </Link>
         </div>
