@@ -34,8 +34,21 @@ const AddBook = () => {
       let imageUrl = "";
 
       if (imageFile) {
-        // Simulate image upload with temporary local URL
-        imageUrl = URL.createObjectURL(imageFile);
+        const formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("upload_preset", "book_upload"); // তোমার unsigned preset name
+        formData.append("cloud_name", "dnvxxv2v8"); // cloud name
+
+        const cloudRes = await fetch(
+          "https://api.cloudinary.com/v1_1/dnvxxv2v8/image/upload",
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        const cloudData = await cloudRes.json();
+        imageUrl = cloudData.secure_url;
       }
 
       const finalBook = {
@@ -68,7 +81,11 @@ const AddBook = () => {
   };
 
   if (!user) {
-    return <div className="text-center mt-10 text-red-600">⚠️ Unauthorized Access</div>;
+    return (
+      <div className="text-center mt-10 text-red-600">
+        ⚠️ Unauthorized Access
+      </div>
+    );
   }
 
   return (
@@ -81,6 +98,15 @@ const AddBook = () => {
           onChange={handleImageChange}
           className="w-full p-2 border rounded"
         />
+        {/* Optional: Show image preview */}
+        {imageFile && (
+          <img
+            src={URL.createObjectURL(imageFile)}
+            alt="preview"
+            className="w-32 h-32 object-cover mt-2 border rounded"
+          />
+        )}
+
         <input
           type="text"
           name="title"
@@ -143,7 +169,8 @@ const AddBook = () => {
           className="w-full p-2 border rounded"
         />
         <div className="text-sm text-gray-600 italic">
-          📘 Book content should provide readers with engaging, informative and inspiring experiences.
+          📘 Book content should provide readers with engaging, informative and
+          inspiring experiences.
         </div>
         <button
           type="submit"
