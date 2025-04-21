@@ -11,6 +11,7 @@ import AllBooks from "./pages/AllBooks";
 import BookDetails from "./pages/BookDetails";
 import MyBorrowedBooks from "./pages/MyBorrowedBooks";
 import UpdateBook from "./pages/UpdateBook";
+import CategoryPage from "./pages/CategoryPage";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/book/:id" element={<PrivateRoute><BookDetails /></PrivateRoute>} />
         <Route path="/my-borrowed" element={<PrivateRoute><MyBorrowedBooks /></PrivateRoute>} />
         <Route path="/update-book/:id" element={<PrivateRoute><UpdateBook /></PrivateRoute>} />
+        <Route path="/category/:categoryName" element={<CategoryPage />} />
 
       </Routes>
       <ToastContainer position="top-right" autoClose={3000} />
