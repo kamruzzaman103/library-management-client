@@ -57,6 +57,7 @@ const AddBook = () => {
         rating: parseFloat(bookData.rating),
         image: imageUrl,
         email: user?.email,
+        createdAt: new Date().toISOString(),
       };
 
       const res = await axios.post("http://localhost:5000/api/books", finalBook);
@@ -71,6 +72,7 @@ const AddBook = () => {
           description: "",
           rating: "",
           image: "",
+          createdAt: new Date().toISOString(),
         });
         setImageFile(null);
       }

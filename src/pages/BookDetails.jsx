@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import StarRating from "../components/StarRating";
-// import { AuthContext } from "../contexts/AuthProvider";
 import { useAuth } from "../hooks/useAuth";
 
 const BookDetails = () => {
@@ -48,12 +47,14 @@ const BookDetails = () => {
         }));
         setShowModal(false);
       } else {
-        toast.error("❌ Failed to borrow book");
+        toast.error(`❌ ${res.data.message}`);
       }
     } catch (err) {
-      toast.error("❌ Error borrowing book");
+      const errorMsg = err.response?.data?.message || "❌ Error borrowing book";
+      toast.error(errorMsg);
     }
   };
+
 
   if (!user) {
     navigate("/login");

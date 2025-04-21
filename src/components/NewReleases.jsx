@@ -1,0 +1,62 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+const NewReleases = () => {
+  const [newBooks, setNewBooks] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/books")
+      .then((res) => {
+        const books = res.data;
+
+        // createdAt এর উপর sort করে, নতুন বই আগে
+        const sortedByRelease = books
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .slice(0, 3); // শুধু ৩টা বই
+
+        setNewBooks(sortedByRelease);
+      })
+      .catch((err) => {
+        console.error("Failed to fetch books", err);
+      });
+  }, []);
+
+  return (
+    <section className="bg-white p-8 mb-8">
+      <h2 className="text-3xl font-semibold mb-6">New Releases</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {newBooks.map((book) => (
+          <div key={book._id} className="bg-gray-100 rounded-lg shadow overflow-hidden">
+            {book.image && (
+              <img
+                src={book.image}
+                alt={book.title}
+                className="w-full h-48 object-cover"
+              />
+            )}
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-1">{book.title}</h3>
+              <p>Author: {book.author}</p>
+              <p>Category: {book.category}</p>
+              <p>Quantity: {book.quantity}</p>
+              <p>Rating: {book.rating} ★</p>
+              <p className="text-sm text-gray-600 mb-2">
+                Added: {new Date(book.createdAt).toLocaleDateString()}
+              </p>
+              <Link
+                to={`/book/${book._id}`}
+                className="text-blue-500 hover:underline"
+              >
+                Details
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default NewReleases;
