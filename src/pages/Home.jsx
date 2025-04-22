@@ -5,14 +5,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PopularBooks from "../components/PopularBooks";
 import NewReleases from "../components/NewReleases";
-// import Slider from "../components/Slider";
+import Slider from "../components/Slider";
 
 const Home = () => {
   return (
     <div>
       <section>
         {/* Banner/Slider */}
-        {/* <Slider /> */}
+        <Slider />
       </section>
 
       {/* Book Categories */}
