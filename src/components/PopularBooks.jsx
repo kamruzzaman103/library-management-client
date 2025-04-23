@@ -84,8 +84,11 @@ const PopularBooks = () => {
   }, []);
 
   return (
-    <section className="bg-gray-100 p-8 mb-8">
-      <h2 className="text-3xl font-semibold mb-6">Popular Books</h2>
+    <section className="bg-gray-100 p-8 mb-2">
+      <h2   className="text-4xl font-extrabold text-transparent bg-clip-text 
+                   bg-gradient-to-r from-yellow-400 via-blue-500  to-green-400 
+                   animate-gradient drop-shadow-md hover:drop-shadow-xl transition-all duration-500
+                   text-center mb-5">Popular Books</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {popularBooks.map((book) => (
           <div key={book._id} className="bg-gray-100 rounded-lg shadow overflow-hidden">

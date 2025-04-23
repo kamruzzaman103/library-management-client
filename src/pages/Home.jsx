@@ -17,7 +17,10 @@ const Home = () => {
 
       {/* Book Categories */}
       <section className="p-8">
-        <h2 className="text-3xl font-semibold mb-6">Book Categories</h2>
+        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text 
+                   bg-gradient-to-r from-red-700 via-blue-700  to-green-500 
+                   animate-gradient drop-shadow-md hover:drop-shadow-xl transition-all duration-500
+                   text-center mb-3">Book Categories</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {/* Novel Category */}
           <div className="bg-white p-6 rounded-lg shadow-lg text-center">

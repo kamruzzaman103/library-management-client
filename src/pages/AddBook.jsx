@@ -92,7 +92,13 @@ const AddBook = () => {
 
   return (
     <div className="max-w-xl mx-auto mt-10 p-6 shadow-lg bg-white rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">📚 Add a New Book</h2>
+      <div className="justify-center items-center flex mb-5">
+      <span className="text-3xl mr-4">📚</span><h2 className="text-4xl font-extrabold text-transparent bg-clip-text 
+                   bg-gradient-to-r from-red-700 via-blue-700  to-green-500 
+                   animate-gradient drop-shadow-md hover:drop-shadow-xl transition-all duration-500
+                   text-center"> Add a New Book</h2>
+      </div>
+      
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="file"
