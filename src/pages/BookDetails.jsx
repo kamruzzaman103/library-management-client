@@ -64,14 +64,14 @@ const BookDetails = () => {
   if (!book) return <p className="text-center mt-10">Loading...</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <div className="flex flex-col md:flex-row gap-6 items-center">
+    <div className="max-w-sm sm:max-w-2xl mx-auto p-6 mt-5 sm:mt-20">
+      <div className="flex flex-col md:flex-row sm:gap-16 gap-5 sm:items-center p-4 rounded-xl border-2 border-solid">
         <img
           src={book.image}
           alt={book.title}
-          className="w-full md:w-1/2 rounded-lg shadow"
+          className="sm:max-w-[210px] md:w-1/2 rounded-lg shadow"
         />
-        <div className="space-y-4">
+        <div className="sm:space-y-3 space-y-1">
           <h2 className="text-3xl font-bold">{book.title}</h2>
           <p className="text-gray-600">✍️ {book.author}</p>
           <p className="text-gray-700">{book.description}</p>
@@ -84,7 +84,8 @@ const BookDetails = () => {
           <button
             onClick={() => setShowModal(true)}
             disabled={book.quantity === 0}
-            className={`mt-4 px-4 py-2 rounded text-white ${book.quantity > 0 ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
+            className={`text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
+                focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 ${book.quantity > 0 ? "bg-blue-600 hover:bg-blue-700" : "bg-gray-400 cursor-not-allowed"
               }`}
           >
             📚 {book.quantity > 0 ? "Borrow Now" : "Not Available"}
@@ -130,11 +131,13 @@ const BookDetails = () => {
                 <button
                   type="button"
                   onClick={() => setShowModal(false)}
-                  className="px-4 py-2 bg-gray-400 text-white rounded"
+                  className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none
+                focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5"
                 >
                   Cancel
                 </button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded">
+                <button type="submit" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
+                focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5">
                   Confirm Borrow
                 </button>
               </div>
