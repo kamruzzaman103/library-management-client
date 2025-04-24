@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import StarRating from "../components/StarRating";
 
 const NewReleases = () => {
   const [newBooks, setNewBooks] = useState([]);
@@ -10,11 +11,9 @@ const NewReleases = () => {
       .get("http://localhost:5000/api/books")
       .then((res) => {
         const books = res.data;
-
-        // createdAt এর উপর sort করে, নতুন বই আগে
         const sortedByRelease = books
           .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
-          .slice(0, 3); // শুধু ৩টা বই
+          .slice(0, 3);
 
         setNewBooks(sortedByRelease);
       })
@@ -44,16 +43,19 @@ const NewReleases = () => {
               <p>Author: {book.author}</p>
               <p>Category: {book.category}</p>
               <p>Quantity: {book.quantity}</p>
-              <p>Rating: {book.rating} ★</p>
-              <p className="text-sm text-gray-600 mb-2">
-                Added: {new Date(book.createdAt).toLocaleDateString()}
-              </p>
-              <Link
-                to={`/book/${book._id}`}
-                className="text-blue-500 hover:underline"
-              >
-                Details
-              </Link>
+              <div className="items-center inline-flex gap-2">
+                <p >Rating: </p>
+                <StarRating rating={Math.round(book.rating)} />
+              </div>
+              <div>
+                <Link
+                  to={`/book/${book._id}`}
+                  className="text-blue-500 hover:underline"
+                >
+                  Details
+                </Link>
+              </div>
+
             </div>
           </div>
         ))}

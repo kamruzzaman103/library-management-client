@@ -69,7 +69,7 @@ const BookDetails = () => {
         <img
           src={book.image}
           alt={book.title}
-          className="sm:max-w-[210px] md:w-1/2 rounded-lg shadow"
+          className=" md:w-1/2 sm:max-w-[210px] rounded-lg shadow"
         />
         <div className="sm:space-y-3 space-y-1">
           <h2 className="text-3xl font-bold">{book.title}</h2>

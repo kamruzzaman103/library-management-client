@@ -2,48 +2,58 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../providers/AuthProvider";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const MyBorrowedBooks = () => {
   const { user } = useContext(AuthContext);
   const [borrowedBooks, setBorrowedBooks] = useState([]);
+  const [loading, setLoading] = useState(true); // 🔄 Add loading state
 
   useEffect(() => {
     if (user?.email) {
+      setLoading(true);
       axios
         .get(`http://localhost:5000/api/borrowed?email=${user.email}`)
         .then((res) => {
           setBorrowedBooks(res.data);
+          setLoading(false); // ✅ Set loading false after fetch
+        })
+        .catch(() => {
+          toast.error("❌ Failed to load borrowed books.");
+          setLoading(false);
         });
     }
   }, [user]);
 
   const handleReturn = async (borrowedId, originalBookId) => {
     try {
-      // Step 1: Delete the borrowed entry
       await axios.delete(`http://localhost:5000/api/borrowed/${borrowedId}`);
-
       setBorrowedBooks(borrowedBooks.filter((b) => b._id !== borrowedId));
-      toast.success("✅ Book Returned & Quantity Updated!");
+      toast.success("Book Returned & Quantity Updated!");
     } catch (error) {
       console.error("Return failed:", error);
-      toast.error("❌ Failed to return the book. Try again.");
+      toast.error("Failed to return the book. Try again.");
     }
   };
 
-  
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-6">
       <div className="justify-center items-center flex mb-5">
-      <span className="text-2xl mr-4">📘</span><h2 className="text-4xl font-extrabold text-transparent bg-clip-text 
+        <span className="text-2xl mr-4">📘</span>
+        <h2 className="text-4xl font-extrabold text-transparent bg-clip-text 
                    bg-gradient-to-r from-yellow-600 via-blue-700  to-green-500 
                    animate-gradient drop-shadow-md hover:drop-shadow-xl transition-all duration-500
-                   text-center"> My Borrowed Books</h2>
+                   text-center">
+          My Borrowed Books
+        </h2>
       </div>
 
-      {borrowedBooks.length === 0 ? (
+      {loading ? (
+        <LoadingSpinner /> 
+      ) : borrowedBooks.length === 0 ? (
         <p>No borrowed books yet.</p>
       ) : (
-        <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {borrowedBooks.map((book) => (
             <div key={book._id} className="p-4 border rounded-lg shadow bg-white flex gap-4">
               <img

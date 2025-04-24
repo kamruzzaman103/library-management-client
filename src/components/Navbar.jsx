@@ -59,7 +59,10 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <Link to="/" className="text-lg font-bold">
+      <Link to="/" className="text-xl font-extrabold text-transparent bg-clip-text 
+                   bg-gradient-to-r from-red-700 via-blue-700  to-green-500 
+                   animate-gradient drop-shadow-md hover:drop-shadow-xl transition-all duration-500
+                   text-center">
         Library Management
       </Link>
 
