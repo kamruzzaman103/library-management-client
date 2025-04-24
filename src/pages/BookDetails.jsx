@@ -34,6 +34,7 @@ const BookDetails = () => {
       returnDate,
       title: book.title,
       image: book.image,
+      createdAt: new Date().toISOString(),
     };
 
     try {

@@ -78,7 +78,7 @@ const AddBook = () => {
       }
     } catch (err) {
       console.error(err);
-      toast.error("❌ Failed to add book!");
+      toast.error("Failed to add book!");
     }
   };
 
@@ -91,7 +91,7 @@ const AddBook = () => {
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 shadow-lg bg-white rounded-lg">
+    <div className="max-w-xl mx-auto mt-10 mb-10 p-6 shadow-lg bg-white rounded-lg">
       <div className="justify-center items-center flex mb-5">
       <span className="text-3xl mr-4">📚</span><h2 className="text-4xl font-extrabold text-transparent bg-clip-text 
                    bg-gradient-to-r from-red-700 via-blue-700  to-green-500 

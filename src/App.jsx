@@ -13,6 +13,7 @@ import MyBorrowedBooks from "./pages/MyBorrowedBooks";
 import UpdateBook from "./pages/UpdateBook";
 import CategoryPage from "./pages/CategoryPage";
 import Footer from "./components/Footer";
+import ForgotPassword from './components/ForgotPassword';
 
 const App = () => {
   return (
@@ -20,11 +21,12 @@ const App = () => {
       <Navbar />
   
       {/* Main content area between Navbar and Footer */}
-      <div className="flex-1 py-8">
+      <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/all-books" element={<AllBooks />} />
           <Route path="/add-book" element={<PrivateRoute><AddBook /></PrivateRoute>} />
           <Route path="/book/:id" element={<PrivateRoute><BookDetails /></PrivateRoute>} />

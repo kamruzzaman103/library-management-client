@@ -19,7 +19,7 @@ const MyBorrowedBooks = () => {
           setLoading(false); // ✅ Set loading false after fetch
         })
         .catch(() => {
-          toast.error("❌ Failed to load borrowed books.");
+          toast.error("Failed to load borrowed books.");
           setLoading(false);
         });
     }
@@ -59,16 +59,15 @@ const MyBorrowedBooks = () => {
               <img
                 src={book.image}
                 alt={book.title}
-                className="w-24 h-36 object-cover rounded"
+                className="w-24 h-32 object-cover rounded"
               />
               <div className="flex-1">
-                <h3 className="text-xl font-semibold">{book.title}</h3>
-                <p className="text-gray-600">Author: {book.author}</p>
+                <h3 className="text-xl font-semibold">Title: {book.title}</h3>
                 <p className="text-gray-600">Category: {book.category}</p>
                 <p className="text-sm text-gray-500">
-                  Borrowed: {book.borrowDate}
+                  Borrowed: {new Date(book.borrowedAt).toLocaleDateString()}
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 mb-1">
                   Return by: {book.returnDate}
                 </p>
                 <button

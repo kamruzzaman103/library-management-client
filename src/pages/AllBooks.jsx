@@ -148,16 +148,16 @@ const AllBooks = () => {
                         <Link
                           to={`/book/${book._id}`}
                           className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
-                focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2"
+                focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm sm:px-5 sm:py-2 px-1 py-1"
                         >
-                          📖 Details
+                          Details
                         </Link>
                         <Link
                           to={`/update-book/${book._id}`}
                           className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none
-                focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2"
+                focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm sm:px-5 sm:py-2 px-1 py-1"
                         >
-                          ✏️ Update
+                          Update
                         </Link>
                       </td>
                     </tr>
