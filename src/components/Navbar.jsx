@@ -1,13 +1,13 @@
 // new
 import { Link, NavLink } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth"; // Ensure this matches the export
+import { useAuth } from "../hooks/useAuth"; 
 
 const getActiveClass = (isActive) =>
   isActive
     ? 'text-green-500 underline font-semibold'
     : 'text-white hover:text-green-500';
 const Navbar = () => {
-  const { user, logout } = useAuth(); // Ensure AuthContext is working
+  const { user, logout } = useAuth(); 
 
   return (
     <nav className="bg-gray-800 text-white p-4 flex justify-between items-center">

@@ -11,14 +11,11 @@ const PopularBooks = () => {
       .get("http://localhost:5000/api/books")
       .then((res) => {
         const books = res.data;
-
-        // রেটিং অনুযায়ী sort করবো, আর রেটিং এক হলে createdAt দেখে
         const sortedBooks = books
           .sort((a, b) => {
             if (b.rating !== a.rating) {
               return b.rating - a.rating;
             } else {
-              // createdAt যেটা বেশি মানে সেটা নতুন → আগে আসবে
               return new Date(b.createdAt) - new Date(a.createdAt);
             }
           })

@@ -40,12 +40,6 @@ const Login = () => {
         <button type="submit" className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
                 focus:ring-green-200 dark:focus:ring-green-800  rounded-lg text-sm px-5 py-2.5 w-full font-bold">Login</button>
       </form>
-      {/* <button onClick={handleGoogle} className="mt-4 text-blue-600 underline">
-        Login with Google
-      </button>
-      <p className="mt-2">
-        New here? <Link to="/register" className="text-blue-500">Register</Link>
-      </p> */}
       <div className="mt-4">
         <button
           onClick={handleGoogle}

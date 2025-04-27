@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const { auth } = useContext(AuthContext); // ✅ get auth from context
+  const { auth } = useContext(AuthContext); 
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
@@ -20,7 +20,7 @@ const ForgotPassword = () => {
   const handleResetPassword = async (e) => {
     e.preventDefault();
     try {
-      await sendPasswordResetEmail(auth, email); // ✅ correct usage
+      await sendPasswordResetEmail(auth, email); 
       toast.success("Password reset email sent!");
       navigate('/login');
     } catch (error) {

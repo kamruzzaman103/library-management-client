@@ -32,10 +32,9 @@ const UpdateBook = () => {
       let imageUrl = bookData.image;
 
       if (newImageFile) {
-        // Cloudinary image upload
         const formData = new FormData();
         formData.append("file", newImageFile);
-        formData.append("upload_preset", "bookstore"); // your preset name
+        formData.append("upload_preset", "bookstore"); 
         formData.append("cloud_name", "dnvxxv2v8");
 
         const cloudinaryRes = await axios.post(
@@ -54,11 +53,11 @@ const UpdateBook = () => {
 
       await axios.put(`http://localhost:5000/api/books/${id}`, updatedBook);
 
-      toast.success("✅ Book updated successfully!");
+      toast.success("Book updated successfully!");
       navigate("/all-books");
     } catch (err) {
       console.error(err);
-      toast.error("❌ Failed to update book!");
+      toast.error("Failed to update book!");
     }
   };
 
@@ -69,7 +68,7 @@ const UpdateBook = () => {
   if (!bookData) return <div className="text-center mt-10">Loading book info...</div>;
 
   return (
-    <div className="max-w-xl mx-auto mt-10 p-6 shadow-lg bg-white rounded-lg">
+    <div className="max-w-xl mx-auto mt-10 mb-10 p-6 shadow-lg bg-white rounded-lg">
       <h2 className="text-2xl font-bold mb-4">✏️ Update Book</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -126,7 +125,8 @@ const UpdateBook = () => {
         />
         <button
           type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+           className="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
+                focus:ring-green-200 dark:focus:ring-green-800  rounded-lg text-sm px-5 py-2.5 w-full font-bold"
         >
           ✅ Update Book
         </button>

@@ -36,8 +36,8 @@ const AddBook = () => {
       if (imageFile) {
         const formData = new FormData();
         formData.append("file", imageFile);
-        formData.append("upload_preset", "book_upload"); // তোমার unsigned preset name
-        formData.append("cloud_name", "dnvxxv2v8"); // cloud name
+        formData.append("upload_preset", "book_upload"); 
+        formData.append("cloud_name", "dnvxxv2v8"); 
 
         const cloudRes = await fetch(
           "https://api.cloudinary.com/v1_1/dnvxxv2v8/image/upload",

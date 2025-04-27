@@ -51,7 +51,7 @@ const BookDetails = () => {
         toast.error(`❌ ${res.data.message}`);
       }
     } catch (err) {
-      const errorMsg = err.response?.data?.message || "❌ Error borrowing book";
+      const errorMsg = err.response?.data?.message || " Error borrowing book";
       toast.error(errorMsg);
     }
   };
