@@ -12,7 +12,7 @@ const UpdateBook = () => {
   const [newImageFile, setNewImageFile] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/books/${id}`).then((res) => {
+    axios.get(`https://library-management-server-theta-swart.vercel.app/api/books/${id}`).then((res) => {
       setBookData(res.data);
     });
   }, [id]);
@@ -51,7 +51,7 @@ const UpdateBook = () => {
         image: imageUrl,
       };
 
-      await axios.put(`http://localhost:5000/api/books/${id}`, updatedBook);
+      await axios.put(`https://library-management-server-theta-swart.vercel.app/api/books/${id}`, updatedBook);
 
       toast.success("Book updated successfully!");
       navigate("/all-books");

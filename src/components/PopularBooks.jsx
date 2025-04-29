@@ -8,7 +8,7 @@ const PopularBooks = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/books")
+      .get("https://library-management-server-theta-swart.vercel.app/api/books")
       .then((res) => {
         const books = res.data;
         const sortedBooks = books
