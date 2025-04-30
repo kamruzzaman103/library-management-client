@@ -60,7 +60,7 @@ const AddBook = () => {
         createdAt: new Date().toISOString(),
       };
 
-      const res = await axios.post("https://library-management-server-theta-swart.vercel.app/api/books", finalBook);
+      const res = await axios.post("https://library-management-server-84w7.onrender.com/api/books", finalBook);
 
       if (res.data.insertedId) {
         toast.success("Book added successfully!");

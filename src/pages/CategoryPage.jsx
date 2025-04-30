@@ -12,7 +12,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 
   useEffect(() => {
     axios
-      .get(`https://library-management-server-theta-swart.vercel.app/api/books?category=${categoryName}`)
+      .get(`https://library-management-server-84w7.onrender.com/api/books?category=${categoryName}`)
       .then((res) => {
         setBooks(res.data);
         setLoading(false); // Set loading to false once the data is fetched

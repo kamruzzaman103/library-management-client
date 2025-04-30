@@ -13,10 +13,10 @@ const MyBorrowedBooks = () => {
     if (user?.email) {
       setLoading(true);
       axios
-        .get(`https://library-management-server-theta-swart.vercel.app/api/borrowed?email=${user.email}`)
+        .get(`https://library-management-server-84w7.onrender.com/api/borrowed?email=${user.email}`)
         .then((res) => {
           setBorrowedBooks(res.data);
-          setLoading(false); // ✅ Set loading false after fetch
+          setLoading(false); 
         })
         .catch(() => {
           toast.error("Failed to load borrowed books.");
@@ -27,7 +27,7 @@ const MyBorrowedBooks = () => {
 
   const handleReturn = async (borrowedId, originalBookId) => {
     try {
-      await axios.delete(`https://library-management-server-theta-swart.vercel.app/api/borrowed/${borrowedId}`);
+      await axios.delete(`https://library-management-server-84w7.onrender.com/api/borrowed/${borrowedId}`);
       setBorrowedBooks(borrowedBooks.filter((b) => b._id !== borrowedId));
       toast.success("Book Returned & Quantity Updated!");
     } catch (error) {

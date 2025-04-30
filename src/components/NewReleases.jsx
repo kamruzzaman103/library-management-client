@@ -8,7 +8,7 @@ const NewReleases = () => {
 
   useEffect(() => {
     axios
-      .get("https://library-management-server-theta-swart.vercel.app/api/books")
+      .get("https://library-management-server-84w7.onrender.com/api/books")
       .then((res) => {
         const books = res.data;
         const sortedByRelease = books

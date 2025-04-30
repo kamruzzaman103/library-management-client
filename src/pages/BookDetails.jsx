@@ -14,7 +14,7 @@ const BookDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`https://library-management-server-theta-swart.vercel.app/api/books/${id}`).then((res) => {
+    axios.get(`https://library-management-server-84w7.onrender.com/api/books/${id}`).then((res) => {
       setBook(res.data);
     });
   }, [id]);
@@ -38,7 +38,7 @@ const BookDetails = () => {
     };
 
     try {
-      const res = await axios.post(`https://library-management-server-theta-swart.vercel.app/api/borrow`, borrowInfo);
+      const res = await axios.post(`https://library-management-server-84w7.onrender.com/api/borrow`, borrowInfo);
 
       if (res.data.success) {
         toast.success("📘 Book Borrowed Successfully!");
