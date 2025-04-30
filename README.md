@@ -10,7 +10,7 @@ A modern, responsive, and secure web application built for a school to efficient
 - **Frontend:** React.js, React Router DOM, Tailwind CSS, React Hook Form, React Rating Stars, SweetAlert2, Toastify
 - **Backend:** Node.js, Express.js, MongoDB, JWT
 - **Authentication:** Firebase Auth (Email/Password, Google)
-- **Deployment:** Netlify (Client), Render/Vercel (Server)
+- **Deployment:** Firebase (Client), Render (Server)
 
 ## ✨ Key Features
 
